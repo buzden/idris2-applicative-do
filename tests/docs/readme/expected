@@ -1,0 +1,21 @@
+1/1: Building README (README.md)
+Warning: Unreachable clause: opt f g a b
+
+README:40:1--40:4
+ 36 | 
+ 37 | being equivalent to
+ 38 | 
+ 39 | ```idris
+ 40 | opt f g a b = do
+      ^^^
+
+Error: While processing right hand side of pair. Can't find an implementation for Monad f.
+
+README:18:3--18:9
+ 14 | 
+ 15 | ```idris
+ 16 | pair : Applicative f => a -> b -> f (a, b)
+ 17 | pair a b = ado $ do
+ 18 |   x <- a
+        ^^^^^^
+

@@ -1,0 +1,11 @@
+package applicative-do
+
+authors = "Denis Buzdalov"
+license = "Apache-2.0"
+brief = "Do-syntax which utilises the best of applicatives"
+
+version = 0.1.0
+
+sourcedir = "src"
+
+modules = Syntax.Do.Applicative

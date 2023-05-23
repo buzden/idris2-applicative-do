@@ -1,0 +1,8 @@
+[install]
+whitelist = [ "applicative-do-tests" ]
+
+[custom.all.applicative-do]
+type = "local"
+path = "."
+ipkg = "applicative-do.ipkg"
+test = "tests/tests.ipkg"
