@@ -1,21 +1,57 @@
 1/1: Building README (README.md)
-Warning: Unreachable clause: opt f g a b
+LOG applicative-do.debug:0: adoExpr: ?postpone >>= (\x => ?postpone >>= (\y => pure (x, y)))
+LOG applicative-do.debug:0: adoExpr: a >>= (\x => f x >>= (\y => b >>= (\z => pure (g y z))))
+Error: While processing right hand side of pair. Sorry, I can't find any elaboration which works. All errors:
+Possible error:
+    Error during reflection: README.__con is already defined.
 
-README:40:1--40:4
- 36 | 
- 37 | being equivalent to
- 38 | 
- 39 | ```idris
- 40 | opt f g a b = do
-      ^^^
+    README:19:3--19:9
+     15 | ```idris
+     16 | pair : Applicative f => a -> b -> f (a, b)
+     17 | pair a b = ado $ do
+     18 |   x <- a
+     19 |   y <- b
+            ^^^^^^
 
-Error: While processing right hand side of pair. Can't find an implementation for Monad f.
+Possible error:
+    When unifying:
+        ?a -> Elab ?a
+    and:
+        Elab ?scriptTy
+    Mismatch between: ?a -> Elab ?a and Elab ?scriptTy.
 
-README:18:3--18:9
- 14 | 
- 15 | ```idris
- 16 | pair : Applicative f => a -> b -> f (a, b)
- 17 | pair a b = ado $ do
- 18 |   x <- a
-        ^^^^^^
+    README:17:12--17:15
+     13 | ## `do`-syntax for `Applicative` and `Functor`
+     14 | 
+     15 | ```idris
+     16 | pair : Applicative f => a -> b -> f (a, b)
+     17 | pair a b = ado $ do
+                     ^^^
+
+Error: While processing right hand side of opt. Sorry, I can't find any elaboration which works. All errors:
+Possible error:
+    Error during reflection: README.__con is already defined.
+
+    README:32:3--32:11
+     28 |       (a -> m $ c a) -> (forall a. c a -> b -> d) ->
+     29 |       m a -> m b -> m d
+     30 | opt f g a b = ado $ do
+     31 |   x <- a
+     32 |   y <- f x
+            ^^^^^^^^
+
+Possible error:
+    When unifying:
+        ?a -> Elab ?a
+    and:
+        Elab ?scriptTy
+    Mismatch between: ?a -> Elab ?a and Elab ?scriptTy.
+
+    README:30:15--30:18
+     26 | opt : Monad m =>
+     27 |       {0 c : _ -> _} ->
+     28 |       (a -> m $ c a) -> (forall a. c a -> b -> d) ->
+     29 |       m a -> m b -> m d
+     30 | opt f g a b = ado $ do
+                        ^^^
 
