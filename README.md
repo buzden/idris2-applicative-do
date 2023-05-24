@@ -38,6 +38,9 @@ being equivalent to
 
 ```idris
 opt f g a b = do
-  (x, z) <- [| (a, b) |]
-  f x <&> \y => g y z
+  x <- a
+  [| g (f x) b |]
 ```
+
+Maybe, a reordering flag should be considered,
+which allows to change the order of "effects" arbitrarily.
