@@ -7,5 +7,6 @@ brief = "Do-syntax which utilises the best of applicatives"
 version = 0.1.0
 
 sourcedir = "src"
+builddir = ".build"
 
 modules = Syntax.Do.Applicative

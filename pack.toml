@@ -1,11 +1,3 @@
-[idris2]
-# Temporary stuff, workaround for idris-lang/Idris2#1878
-url    = "https://github.com/AlgebraicWolf/Idris2"
-commit = "410d91eb041acfef90e25f525f93cd6be1209f27"
-
-[install]
-whitelist = [ "applicative-do-tests" ]
-
 [custom.all.applicative-do]
 type = "local"
 path = "."

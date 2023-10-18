@@ -3,15 +3,15 @@ LOG applicative-do.debug:0: adoExpr: ?postpone >>= (\x => ?postpone >>= (\y => p
 LOG applicative-do.debug:0: adoExpr: a >>= (\x => f x >>= (\y => b >>= (\z => pure (g y z))))
 Error: While processing right hand side of pair. Sorry, I can't find any elaboration which works. All errors:
 Possible error:
-    Error during reflection: README.__con is already defined.
+    Error during reflection: README.postpone is already defined.
 
-    README:19:3--19:9
+    README:19:8--19:9
      15 | ```idris
      16 | pair : Applicative f => a -> b -> f (a, b)
      17 | pair a b = ado $ do
      18 |   x <- a
      19 |   y <- b
-            ^^^^^^
+                 ^
 
 Possible error:
     When unifying:
