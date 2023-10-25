@@ -4,8 +4,6 @@ module README
 import Syntax.Do.Applicative
 
 %default total
-
-%language ElabReflection
 -->
 
 # Applicative `do`
