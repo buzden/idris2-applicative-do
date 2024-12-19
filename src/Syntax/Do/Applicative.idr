@@ -19,6 +19,7 @@ pure = Prelude.pure
 
 pair : Applicative f => a -> b -> f (a, b)
 pair a b = Applicative.do
-  x <- a
-  y <- b
-  pure (x, y)
+--  x <- a
+--  y <- b
+--  pure (x, y)
+  pure (a, b)
