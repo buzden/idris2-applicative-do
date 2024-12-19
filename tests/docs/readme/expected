@@ -1,57 +1,185 @@
 1/1: Building README (README.md)
-LOG applicative-do.debug:0: adoExpr: ?postpone >>= (\x => ?postpone >>= (\y => pure (x, y)))
-LOG applicative-do.debug:0: adoExpr: a >>= (\x => f x >>= (\y => b >>= (\z => pure (g y z))))
+LOG applicative-do.debug:0: fa: ?postpone
+LOG applicative-do.debug:0: fb: \y => pure (x, y)
+LOG applicative-do.debug:0: fa: b
+LOG applicative-do.debug:0: fb: \z => pure (g ?postpone z)
 Error: While processing right hand side of pair. Sorry, I can't find any elaboration which works. All errors:
 Possible error:
-    Error during reflection: README.postpone is already defined.
+    Sorry, I can't find any elaboration which works. All errors:
+    Possible error:
+        Error during reflection: not implemented yet
 
-    README:17:8--17:9
-     13 | ```idris
-     14 | pair : Applicative f => a -> b -> f (a, b)
-     15 | pair a b = ado $ do
-     16 |   x <- a
-     17 |   y <- b
-                 ^
+        README:17:3--17:9
+         13 | ```idris
+         14 | pair : Applicative f => a -> b -> f (a, b)
+         15 | pair a b = Applicative.do
+         16 |   x <- a
+         17 |   y <- b
+                ^^^^^^
+
+    Possible error:
+        When unifying:
+            (?a -> ?f ?b) -> Elab (?f ?b)
+        and:
+            Elab ?scriptTy
+        Mismatch between: (?a -> ?f ?b) -> Elab (?f ?b) and Elab ?scriptTy.
+
+        README:17:3--17:9
+         13 | ```idris
+         14 | pair : Applicative f => a -> b -> f (a, b)
+         15 | pair a b = Applicative.do
+         16 |   x <- a
+         17 |   y <- b
+                ^^^^^^
+
+    Possible error:
+        When unifying:
+            ?f ?a -> (?a -> ?f ?b) -> Elab (?f ?b)
+        and:
+            Elab ?scriptTy
+        Mismatch between: ?f ?a -> (?a -> ?f ?b) -> Elab (?f ?b) and Elab ?scriptTy.
+
+        README:17:3--17:9
+         13 | ```idris
+         14 | pair : Applicative f => a -> b -> f (a, b)
+         15 | pair a b = Applicative.do
+         16 |   x <- a
+         17 |   y <- b
+                ^^^^^^
 
 Possible error:
     When unifying:
-        ?a -> Elab ?a
+        (?a -> ?f ?b) -> Elab (?f ?b)
     and:
         Elab ?scriptTy
-    Mismatch between: ?a -> Elab ?a and Elab ?scriptTy.
+    Mismatch between: (?a -> ?f ?b) -> Elab (?f ?b) and Elab ?scriptTy.
 
-    README:15:12--15:15
-     11 | ## `do`-syntax for `Applicative` and `Functor`
+    README:16:3--16:9
      12 | 
      13 | ```idris
      14 | pair : Applicative f => a -> b -> f (a, b)
-     15 | pair a b = ado $ do
-                     ^^^
-
-Error: While processing right hand side of opt. Sorry, I can't find any elaboration which works. All errors:
-Possible error:
-    Error during reflection: README.__con is already defined.
-
-    README:30:3--30:11
-     26 |       (a -> m $ c a) -> (forall a. c a -> b -> d) ->
-     27 |       m a -> m b -> m d
-     28 | opt f g a b = ado $ do
-     29 |   x <- a
-     30 |   y <- f x
-            ^^^^^^^^
+     15 | pair a b = Applicative.do
+     16 |   x <- a
+            ^^^^^^
 
 Possible error:
     When unifying:
-        ?a -> Elab ?a
+        ?f ?a -> (?a -> ?f ?b) -> Elab (?f ?b)
     and:
         Elab ?scriptTy
-    Mismatch between: ?a -> Elab ?a and Elab ?scriptTy.
+    Mismatch between: ?f ?a -> (?a -> ?f ?b) -> Elab (?f ?b) and Elab ?scriptTy.
 
-    README:28:15--28:18
-     24 | opt : Monad m =>
+    README:16:3--16:9
+     12 | 
+     13 | ```idris
+     14 | pair : Applicative f => a -> b -> f (a, b)
+     15 | pair a b = Applicative.do
+     16 |   x <- a
+            ^^^^^^
+
+Error: While processing right hand side of opt. Sorry, I can't find any elaboration which works. All errors:
+Possible error:
+    Sorry, I can't find any elaboration which works. All errors:
+    Possible error:
+        Sorry, I can't find any elaboration which works. All errors:
+        Possible error:
+            Error during reflection: not implemented yet
+
+            README:31:3--31:9
+             27 |       m a -> m b -> m d
+             28 | opt f g a b = Applicative.do
+             29 |   x <- a
+             30 |   y <- f x
+             31 |   z <- b
+                    ^^^^^^
+
+        Possible error:
+            When unifying:
+                (?a -> ?f ?b) -> Elab (?f ?b)
+            and:
+                Elab ?scriptTy
+            Mismatch between: (?a -> ?f ?b) -> Elab (?f ?b) and Elab ?scriptTy.
+
+            README:31:3--31:9
+             27 |       m a -> m b -> m d
+             28 | opt f g a b = Applicative.do
+             29 |   x <- a
+             30 |   y <- f x
+             31 |   z <- b
+                    ^^^^^^
+
+        Possible error:
+            When unifying:
+                ?f ?a -> (?a -> ?f ?b) -> Elab (?f ?b)
+            and:
+                Elab ?scriptTy
+            Mismatch between: ?f ?a -> (?a -> ?f ?b) -> Elab (?f ?b) and Elab ?scriptTy.
+
+            README:31:3--31:9
+             27 |       m a -> m b -> m d
+             28 | opt f g a b = Applicative.do
+             29 |   x <- a
+             30 |   y <- f x
+             31 |   z <- b
+                    ^^^^^^
+
+    Possible error:
+        When unifying:
+            (?a -> ?f ?b) -> Elab (?f ?b)
+        and:
+            Elab ?scriptTy
+        Mismatch between: (?a -> ?f ?b) -> Elab (?f ?b) and Elab ?scriptTy.
+
+        README:30:3--30:11
+         26 |       (a -> m $ c a) -> (forall a. c a -> b -> d) ->
+         27 |       m a -> m b -> m d
+         28 | opt f g a b = Applicative.do
+         29 |   x <- a
+         30 |   y <- f x
+                ^^^^^^^^
+
+    Possible error:
+        When unifying:
+            ?f ?a -> (?a -> ?f ?b) -> Elab (?f ?b)
+        and:
+            Elab ?scriptTy
+        Mismatch between: ?f ?a -> (?a -> ?f ?b) -> Elab (?f ?b) and Elab ?scriptTy.
+
+        README:30:3--30:11
+         26 |       (a -> m $ c a) -> (forall a. c a -> b -> d) ->
+         27 |       m a -> m b -> m d
+         28 | opt f g a b = Applicative.do
+         29 |   x <- a
+         30 |   y <- f x
+                ^^^^^^^^
+
+Possible error:
+    When unifying:
+        (?a -> ?f ?b) -> Elab (?f ?b)
+    and:
+        Elab ?scriptTy
+    Mismatch between: (?a -> ?f ?b) -> Elab (?f ?b) and Elab ?scriptTy.
+
+    README:29:3--29:9
      25 |       {0 c : _ -> _} ->
      26 |       (a -> m $ c a) -> (forall a. c a -> b -> d) ->
      27 |       m a -> m b -> m d
-     28 | opt f g a b = ado $ do
-                        ^^^
+     28 | opt f g a b = Applicative.do
+     29 |   x <- a
+            ^^^^^^
+
+Possible error:
+    When unifying:
+        ?f ?a -> (?a -> ?f ?b) -> Elab (?f ?b)
+    and:
+        Elab ?scriptTy
+    Mismatch between: ?f ?a -> (?a -> ?f ?b) -> Elab (?f ?b) and Elab ?scriptTy.
+
+    README:29:3--29:9
+     25 |       {0 c : _ -> _} ->
+     26 |       (a -> m $ c a) -> (forall a. c a -> b -> d) ->
+     27 |       m a -> m b -> m d
+     28 | opt f g a b = Applicative.do
+     29 |   x <- a
+            ^^^^^^
 

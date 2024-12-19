@@ -12,7 +12,7 @@ import Syntax.Do.Applicative
 
 ```idris
 pair : Applicative f => a -> b -> f (a, b)
-pair a b = ado $ do
+pair a b = Applicative.do
   x <- a
   y <- b
   pure (x, y)
@@ -25,7 +25,7 @@ opt : Monad m =>
       {0 c : _ -> _} ->
       (a -> m $ c a) -> (forall a. c a -> b -> d) ->
       m a -> m b -> m d
-opt f g a b = ado $ do
+opt f g a b = Applicative.do
   x <- a
   y <- f x
   z <- b

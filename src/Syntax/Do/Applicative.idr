@@ -4,6 +4,7 @@ import public Language.Reflection
 
 %default total
 
+export
 %macro
 (>>=) : Applicative f => f a -> (a -> f b) -> Elab $ f b
 (>>=) fa fb = Prelude.do
@@ -14,6 +15,7 @@ import public Language.Reflection
   fail "not implemented yet"
 
 -- Just to make the `Applicative.do` syntax work
+export
 pure : Applicative f => a -> f a
 pure = Prelude.pure
 
