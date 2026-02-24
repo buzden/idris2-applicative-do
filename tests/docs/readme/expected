@@ -55,7 +55,7 @@ Possible error:
     Mismatch between: (?a -> ?f ?b) -> Elab (?f ?b) and Elab ?scriptTy.
 
     README:16:3--16:9
-     12 | 
+     12 |
      13 | ```idris
      14 | pair : Applicative f => a -> b -> f (a, b)
      15 | pair a b = Applicative.do
@@ -70,7 +70,7 @@ Possible error:
     Mismatch between: ?f ?a -> (?a -> ?f ?b) -> Elab (?f ?b) and Elab ?scriptTy.
 
     README:16:3--16:9
-     12 | 
+     12 |
      13 | ```idris
      14 | pair : Applicative f => a -> b -> f (a, b)
      15 | pair a b = Applicative.do
